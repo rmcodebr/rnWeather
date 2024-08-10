@@ -252,6 +252,8 @@ export function filterDataForDate(data, date) {
     )}T${initHour}:00:00Z`
   );
 
+  console.log(data.init);
+
   console.log("initDateStr: " + initDateStr);
   console.log("initHour :" + initHour);
   console.log("initDate :" + initDate);
@@ -289,6 +291,7 @@ export function addHoursAndExtractInfo(dateInt, hoursToAdd) {
   const dayOfWeek = newDate.toLocaleDateString("pt-BR", { weekday: "long" }); // Full name of the day of the week
 
   // return [`${hour}h - ${dayOfWeek}, dia ${day} de ${descMonth} de ${year}`];
+  console.log(hour);
 
   return {
     hour: hour,

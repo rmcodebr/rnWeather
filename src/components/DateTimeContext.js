@@ -30,6 +30,7 @@ export const DateTimeProvider = ({ children }) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [ampm, setAmPm] = useState("");
+  const [hour, setHour] = useState("");
 
   useEffect(() => {
     setInterval(() => {
@@ -42,6 +43,7 @@ export const DateTimeProvider = ({ children }) => {
       const minutes = time.getMinutes();
       const ampm = hour >= 12 ? "pm" : "am";
       setAmPm(ampm);
+      setHour(hour);
 
       setTime(
         (hoursIn12HrFormat < 10 ? "0" + hoursIn12HrFormat : hoursIn12HrFormat) +
@@ -55,7 +57,7 @@ export const DateTimeProvider = ({ children }) => {
   }, [date, time]);
 
   return (
-    <DateTimeContext.Provider value={{ date, time, ampm }}>
+    <DateTimeContext.Provider value={{ date, time, ampm, hour }}>
       {children}
     </DateTimeContext.Provider>
   );
